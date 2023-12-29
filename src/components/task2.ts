@@ -1,4 +1,4 @@
-import m, { Attributes, Vnode } from "mithril";
+import m, { Vnode } from "mithril";
 import "~/styles.css";
 
 interface TempVnode extends Vnode {

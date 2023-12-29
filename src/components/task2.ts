@@ -1,22 +1,47 @@
-import m from "mithril";
+import m, { Attributes, Vnode } from "mithril";
 import "~/styles.css";
 
-interface CountComponent extends m.Component {
-  count: number;
+interface TempVnode extends Vnode {
+  state: {
+    fah: string;
+    cel: string;
+  }
 }
 
-const Task2: CountComponent = {
-  count: 0,
-  view: (v) => {
+const Task2: m.Component = {
+  view: (v: TempVnode) => {
     return m("div", 
-      m("p", "Task 2: Count"), m("div", { style: {
+      m("p", "Task 2: Temperature Converter"), m("div", { style: {
       display: "flex",
       flexDirection: "row",
-      width: "200px",
       gap: ".25rem",
     }}, [
-      m("input", { type: "text", value: v.state.count, readonly: true}),
-      m("button", { onclick: () => { v.state.count++; } }, "Increment"),
+      m("input", { 
+        type: "text",
+        inputMode: "decimal",
+        value: v.state.cel,
+        oninput: (e: InputEvent) => {
+          if(e.target instanceof HTMLInputElement)
+            v.state.cel = e.target.value
+
+          if(v.state.cel !== "")
+            v.state.fah = (parseFloat(v.state.cel) * (9.0/5.0) + 32) + ""
+        }
+      }),
+      m("p", "Celcius = "),
+      m("input", { 
+        type: "text", 
+        inputMode: "decimal",
+        value: v.state.fah,
+        oninput: (e: InputEvent) => {
+          if(e.target instanceof HTMLInputElement)
+            v.state.fah = e.target.value
+
+          if(v.state.fah !== "")
+            v.state.cel = ((parseFloat(v.state.fah) - 32) * (5.0/9.0)) + ""
+        }
+      }),
+      m("p", "Fahrenheit"),
     ]));
   },
 };

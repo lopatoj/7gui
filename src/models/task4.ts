@@ -13,8 +13,8 @@ const Timer = {
       Timer.time += Timer.tick;
     } else {
       Timer.time = Timer.duration;
-      clearInterval(Timer.interval);
     }
+
     m.redraw();
   },
   reset: () => {

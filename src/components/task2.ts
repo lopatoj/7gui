@@ -8,7 +8,7 @@ const Task2: m.Component = {
   view: () => {
     return m(
       Task,
-      { title: "Task 2: Temperature Converter" },
+      { title: "Task 2: Temperature Converter"},
       m(
         "div",
         {

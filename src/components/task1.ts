@@ -6,7 +6,7 @@ import Task from "~/components/task";
 
 const Task1: m.Component = {
   view: () => {
-    return m(Task, {title: "Task 1: Count"}, [
+    return m(Task, { title: "Task 1: Count"}, [
       m("input", { type: "text", value: Count.value, readonly: true }),
       m("button", { onclick: Count.increment }, "Increment"),
     ]);

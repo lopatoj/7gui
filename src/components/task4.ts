@@ -9,37 +9,71 @@ const Task4: m.Component = {
     Timer.reset();
   },
   view: () => {
-    return m(Task, { title: "Task 4: Timer" }, [
-      m("div", {
-        style: {
-          display: "flex",
-          flexDirection: "row",
-          gap: ".25rem",
-        },
-      },[
-        m("p", "Elapsed time:"),
-        m("div.", {
+    return m(
+      Task,
+      { title: "Task 4: Timer" },
+      m(
+        "div",
+        {
           style: {
-            backgroundColor: "black",
-            color: "white",
-            padding: "0.25rem",
-            borderRadius: "0.25rem",
+            display: "grid",
+            gridTemplateColumns: "1fr 2fr",
+            gridTemplateRows: "1fr 1fr 1fr 1fr",
+            gap: ".5rem",
           },
-        }, m("div", {style: {backgroundColor: "black", height: "1rem", width: `${Timer.fraction}%`}})),
-      ]),
-      m("div", [
-        m("input", {
-          type: "range",
-          min: "0",
-          max: "100",
-          oninput: (e: InputEvent) => {
-            if (e.target instanceof HTMLInputElement)
-              Timer.duration = parseFloat(e.target.value);
-          },
-        }),
-      ]),
-      m("button", { onclick: Timer.reset }, "Reset"),
-    ]);
+        },
+        [
+          m(
+            "p",
+            {
+              style: {
+                gridColumn: "1",
+              },
+            },
+            "Elapsed time:"
+          ),
+          m("progress", {
+            max: Timer.duration,
+            value: Timer.time,
+            style: {
+              gridColumn: "2",
+              width: "100%",
+              margin: "auto",
+            },
+          }),
+          m(
+            "p",
+            {
+              style: {
+                gridColumn: "2",
+              },
+            },
+            Timer.time.toFixed(1)
+          ),
+          m("p", "Duration:"),
+          m("input", {
+            type: "range",
+            min: "1",
+            max: "30",
+            defaultValue: "10",
+            oninput: (e: InputEvent) => {
+              if (e.target instanceof HTMLInputElement)
+                Timer.duration = parseFloat(e.target.value);
+            },
+          }),
+          m(
+            "button",
+            {
+              onclick: Timer.reset,
+              style: {
+                gridColumn: "1 / span 2",
+              },
+            },
+            "Reset"
+          ),
+        ]
+      )
+    );
   },
 };
 

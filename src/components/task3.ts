@@ -6,7 +6,7 @@ import Task from "~/components/task";
 
 const Task3: m.Component = {
   view: () => {
-    return m(Task, {title: "Task 3: Flight Booker"}, [
+    return m(Task, { title: "Task 3: Flight Booker" }, [
       m(
         "select",
         {
@@ -15,10 +15,8 @@ const Task3: m.Component = {
               Flight.type = e.target.value as "one-way" | "return";
           },
         },
-        [
-          m("option", { value: "one-way" }, "One-way"),
-          m("option", { value: "return" }, "Return"),
-        ]
+        m("option", { value: "one-way" }, "One-way"),
+        m("option", { value: "return" }, "Return")
       ),
       m("input", {
         type: "date",

@@ -1,49 +1,15 @@
 import m from "mithril";
 import "~/styles.css";
 
-interface CountComponent extends m.Component {
-  count: number;
-}
+import Count from "~/models/task1";
 
-const Task1: CountComponent = {
-  count: 0,
-  view: (v) => {
-    return m(
-      "div",
+const Task1: m.Component = {
+  view: () => {
+    return m("div.task", [
       m("p", "Task 1: Count"),
-      m(
-        "div",
-        {
-          style: {
-            display: "flex",
-            flexDirection: "row",
-            width: "200px",
-            gap: ".25rem",
-          },
-        },
-        [
-          m("input", {
-            type: "text",
-            value: v.state.count,
-            readonly: true,
-            disabled: true,
-            style: {
-              width: "100%",
-
-            },
-          }),
-          m(
-            "button",
-            {
-              onclick: () => {
-                v.state.count++;
-              },
-            },
-            "Increment"
-          ),
-        ]
-      )
-    );
+      m("input", { type: "text", value: Count.value, readonly: true }),
+      m("button", { onclick: Count.increment }, "Increment"),
+    ]);
   },
 };
 

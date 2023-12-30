@@ -4,16 +4,14 @@ const Temperatures = {
   setFah: (value: string) => {
     Temperatures.cel = value;
     const c = parseFloat(Temperatures.cel);
-
-    if (Temperatures.cel !== "" && !isNaN(c)) 
-      Temperatures.fah = parseFloat(Temperatures.cel) * (9.0 / 5.0) + 32 + "";
+    if (isNaN(c)) return;
+    Temperatures.fah = (c * (9.0 / 5.0) + 32).toString();
   },
   setCel: (value: string) => {
     Temperatures.fah = value;
     const f = parseFloat(Temperatures.fah);
-
-    if (Temperatures.fah !== "" && !isNaN(f)) 
-      Temperatures.cel = (parseFloat(Temperatures.fah) - 32) * (5.0 / 9.0) + "";
+    if (isNaN(f)) return;
+    Temperatures.cel = ((f - 32) * (5.0 / 9.0)).toString();
   },
 };
 

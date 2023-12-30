@@ -2,12 +2,13 @@ import m from "mithril";
 import "~/styles.css";
 
 import Temperatures from "~/models/task2";
+import Task from "./task";
 
 const Task2: m.Component = {
   view: () => {
     return m(
-      "div.task",
-      m("p", "Task 2: Temperature Converter"),
+      Task,
+      { title: "Task 2: Temperature Converter" },
       m(
         "div",
         {

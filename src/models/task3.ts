@@ -1,18 +1,6 @@
 import { startOfToday } from "date-fns";
 
-interface FlightState {
-  type: "one-way" | "return";
-  leave: Date;
-  return: Date;
-  valid: boolean;
-  
-  setLeave: (date: Date) => void;
-  setReturn: (date: Date) => void;
-
-  validate: () => void;
-}
-
-const Flight: FlightState = {
+const Flight = {
   type: "one-way",
   leave: startOfToday(),
   return: startOfToday(),

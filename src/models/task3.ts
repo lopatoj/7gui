@@ -5,9 +5,11 @@ interface FlightState {
   leave: Date;
   return: Date;
   valid: boolean;
-  validate: () => void;
+  
   setLeave: (date: Date) => void;
   setReturn: (date: Date) => void;
+
+  validate: () => void;
 }
 
 const Flight: FlightState = {
@@ -15,14 +17,7 @@ const Flight: FlightState = {
   leave: startOfToday(),
   return: startOfToday(),
   valid: false,
-  validate: () => {
-    if (Flight.type === "one-way") {
-      Flight.valid = Flight.leave >= startOfToday();
-    } else {
-      Flight.valid =
-        Flight.leave >= startOfToday() && Flight.leave <= Flight.return;
-    }
-  },
+
   setLeave: (date: Date) => {
     Flight.leave = date;
     Flight.validate();
@@ -30,6 +25,15 @@ const Flight: FlightState = {
   setReturn: (date: Date) => {
     Flight.return = date;
     Flight.validate();
+  },
+
+  validate: () => {
+    if (Flight.type === "one-way") {
+      Flight.valid = Flight.leave >= startOfToday();
+    } else {
+      Flight.valid =
+        Flight.leave >= startOfToday() && Flight.leave <= Flight.return;
+    }
   },
 };
 

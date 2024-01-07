@@ -48,9 +48,9 @@ const Task4: m.Component = {
                 gridColumn: "2",
               },
             },
-            Timer.time.toFixed(1)
+            Timer.time.toFixed(1) + "s"
           ),
-          m("p", "Duration:"),
+          m("p", "Duration: " + Timer.duration + "s"),
           m("input", {
             type: "range",
             min: "1",

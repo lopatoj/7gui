@@ -5,6 +5,7 @@ import Task1 from "~/components/task1";
 import Task2 from "./components/task2";
 import Task3 from "./components/task3";
 import Task4 from "./components/task4";
+import Task5 from "./components/task5";
 
 m.mount(document.body, {
   view: () => {
@@ -14,7 +15,8 @@ m.mount(document.body, {
       m(Task1),
       m(Task2),
       m(Task3),
-      m(Task4)
+      m(Task4),
+      m(Task5),
     ]);
   },
 });

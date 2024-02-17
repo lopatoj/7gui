@@ -1,6 +1,6 @@
 # 7GUIs Challenge in Mithril.js
 
-This repository contains my implementation of the 7GUIs challenge using Mithril.js. The 7GUIs challenge is a set of seven user interface programming tasks that are designed to compare different frameworks and approaches.
+This repository contains my implementation of the [7GUI](https://eugenkiss.github.io/7guis/)s challenge using Mithril.js. The 7GUIs challenge is a set of seven user interface programming tasks that are designed to compare different frameworks and approaches.
 
 ## Task Implementations
 

@@ -1,6 +1,6 @@
 import m from "mithril";
 
-export const People: People = {
+const People = {
   list: [
     { first: "Jane", last: "Doe" },
     { first: "John", last: "Doe" },
@@ -23,3 +23,5 @@ export const People: People = {
     m.redraw();
   },
 };
+
+export default People;

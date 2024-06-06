@@ -1,18 +1,6 @@
 import m from "mithril";
 
-interface People {
-  list: {
-    first: string;
-    last: string;
-  }[];
-  selected: number;
-  create: (first: string, last: string) => void;
-  update: (index: number, first: string, last: string) => void;
-  delete: (index: number) => void;
-  filter: (prefix: string) => void;
-}
-
-const People: People = {
+export const People: People = {
   list: [
     { first: "Jane", last: "Doe" },
     { first: "John", last: "Doe" },
@@ -35,5 +23,3 @@ const People: People = {
     m.redraw();
   },
 };
-
-export default People;
